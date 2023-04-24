@@ -1,20 +1,26 @@
 import {useReducer} from "react";
 import Marble, {Colors} from "./Marble.jsx";
 
-const WIDTH = 9, HEIGHT = 9;
+const WIDTH = 9, HEIGHT = 9, COLOR_MAX = 14;
 
 const midPoint = value => Math.ceil(value / 2) - 1;
 
 function initBoard() {
     const board = new Array(HEIGHT);
     let i, j;
+    let counts = [0,0,0,0,0,0]
 
     function chooseColor() {
         const choices = [Colors.Red, Colors.Orange, Colors.Yellow, Colors.Green, Colors.Blue, Colors.Purple];
-        let choice;
+        let choice, index, attempts = 0;
         do {
-            choice = choices[Math.floor(Math.random() * choices.length)];
-        } while (!validateChoice(choice));
+            attempts++;
+            if (attempts > 20)
+                break;
+            index = Math.floor(Math.random() * choices.length);
+            choice = choices[index];
+        } while (!validateChoice(choice) || counts[index] >= COLOR_MAX);
+        counts[index]++;
         return choice;
     }
 
