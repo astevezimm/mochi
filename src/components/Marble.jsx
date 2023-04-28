@@ -6,9 +6,10 @@ export const Colors = {
     Yellow: "yellow",
     Green: "green",
     Blue: "blue",
-    Purple: "purple"
+    Purple: "purple",
+    Empty: "empty"
 }
 
 export default function Marble(props) {
-    return <div className={classes[props.color]}>{props.color}</div>
+    return <div className={classes[props.color]} />
 }

@@ -1,22 +1,33 @@
-.red, .orange, .yellow, .green, .blue, .purple {
-    
+.red, .orange, .yellow, .green, .blue, .purple, .empty {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-image: radial-gradient(circle at 30px 30px, transparent 20%, black);
+    box-shadow: 5px 5px 5px #8c8c8c;
 }
 
 .red {
-    
+    background-color: red;
 }
 .orange {
-    
+    background-color: orange;
 }
 .yellow {
-    
+    background-color: yellow;
 }
 .green {
-    
+    background-color: green;
 }
 .blue {
-    
+    background-color: blue;
 }
 .purple {
-    
+    background-color: purple;
+}
+
+.empty {
+    background-image: radial-gradient(circle at 35px 35px, transparent 45%, rgba(0, 0, 0, 0.75));
+    box-shadow: none;
 }

@@ -1,0 +1,9 @@
+.board {
+    background-color: #ecd5c6;
+    width: fit-content;
+    box-shadow: 5px 5px 10px #8c8c8c;
+}
+
+.row {
+    height: 100px;
+}

@@ -1,5 +1,6 @@
 import {useReducer} from "react";
 import Marble, {Colors} from "./Marble.jsx";
+import classes from "./Board.module.css"
 
 const WIDTH = 9, HEIGHT = 9, COLOR_MAX = 14;
 
@@ -39,7 +40,7 @@ function initBoard() {
         }
     }
     
-    board[midPoint(WIDTH)][midPoint(HEIGHT)] = null;
+    board[midPoint(WIDTH)][midPoint(HEIGHT)] = Colors.Empty;
     return board;
 }
 
@@ -50,8 +51,12 @@ function reducer(state, action) {
 export default function Board() {
     const [board, dispatch] = useReducer(reducer, initBoard());
     
-    return board.map((row, i) =>
-        <div style={{display: "flex", gap: "20px"}} key={i}>
-            {row.map((color, j) => <Marble color={color} key={j} />)}
-        </div>);
+    return (
+        <div className={classes.board}>
+            {board.map((row, i) =>
+                <div className={classes.row} key={i}>
+                    {row.map((color, j) => <Marble color={color} key={j} />)}
+                </div>)}
+        </div>
+    );
 }
